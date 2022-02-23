@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment } from "react";
 
-function App() {
+import Header from "./Components/Header/Header";
+import Login from "./Components/Login/Login";
+
+const DUMMY_MOVEMENTS: {
+  id: number;
+  title: string;
+  movements: number[];
+} = {
+  id: 1,
+  title: "Johnas",
+  movements: [100, -200, 3000, -600, 100, -200, 7000, -600],
+};
+
+const App: React.FC = function () {
+  console.log(DUMMY_MOVEMENTS);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Login />
+      {/* <header>
+        <Header />
+      </header> */}
+    </Fragment>
   );
-}
+};
 
 export default App;

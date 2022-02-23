@@ -1,0 +1,36 @@
+.navigation {
+  max-width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #38015c;
+}
+.heading {
+  font-size: 2rem;
+  margin: 1px 1rem;
+  color: #fff;
+}
+.titleName {
+  font-size: 1.5rem;
+  margin: 1px 1rem;
+  color: #fff;
+}
+.titleName span {
+  font-size: 1.25rem;
+}
+.logoutButton {
+  font-size: 1rem;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 0 1rem;
+}
+.logoutButton:hover {
+  background-color: #c291e2;
+  color: #38015c;
+}

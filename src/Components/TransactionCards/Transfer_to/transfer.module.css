@@ -1,0 +1,45 @@
+.transfer_Container {
+  width: 33%;
+}
+.transferForm {
+  font-size: 1rem;
+}
+
+.transfer {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.transfer label {
+  font-weight: 400;
+}
+.transfer input {
+  outline: none;
+  border: 2px solid #000;
+  height: 1.5rem;
+  font-size: 1rem;
+  margin-top: 2px;
+  background-color: #f1f2f3;
+}
+.transferTo {
+  width: 50%;
+}
+.transferAmount {
+  width: 50%;
+}
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
+.button button {
+  background-color: #1ca262;
+  padding: 0.3rem 0.5rem;
+  border: none;
+  width: 6rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+}

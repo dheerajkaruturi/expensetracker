@@ -1,0 +1,23 @@
+.currentBal_container{
+    width: 33%;
+    margin: 0rem 0rem 1rem 0rem;
+}
+.currentBal {
+  height: 5rem;
+}
+.currentBal h2 {
+  font-size: 1.3rem;
+}
+.currentBal h2 span {
+  font-size: 0.75rem;
+}
+.currentBal p {
+  font-size: 1rem;
+  font-weight: 700;
+  float: right;
+  margin-top: 1.5rem;
+  background-color: #22c55e;
+  width: 8rem;
+  padding: 2px 15px;
+  border-radius: 0.5rem;
+}

@@ -13,8 +13,8 @@
 }
 .titleName {
   font-size: 1.5rem;
-  margin: 1px 1rem;
   color: #fff;
+  text-align: center;
 }
 .titleName span {
   font-size: 1.25rem;

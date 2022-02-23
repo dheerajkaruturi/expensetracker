@@ -1,0 +1,30 @@
+.loan_container {
+  width: 33%;
+}
+.loanForm {
+  display: flex;
+  flex-direction: column;
+}
+.loanAmount label {
+  font-size: 1rem;
+  font-weight: 400;
+  display: block;
+}
+.loanAmount input {
+  outline: none;
+  width: 80%;
+  border: 2px solid #000;
+  margin: 0.5rem 1rem 0 0;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  background-color: #f1f2f3;
+}
+.loanAmount button {
+  font-size: 1rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 50%;
+  border: none;
+  background-color: #e11d48;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}

@@ -1,7 +1,8 @@
 import React, { Fragment } from "react";
+import Timer from "./Components/CountdownTimer/Timer";
 
 import Header from "./Components/Header/Header";
-import Login from "./Components/Login/Login";
+import TransactionCards from "./Components/TransactionCards/TransactionCards";
 
 const DUMMY_MOVEMENTS: {
   id: number;
@@ -17,10 +18,13 @@ const App: React.FC = function () {
   console.log(DUMMY_MOVEMENTS);
   return (
     <Fragment>
-      <Login />
-      {/* <header>
+      <header>
         <Header />
-      </header> */}
+      </header>
+      <section>
+        <Timer />
+        <TransactionCards />
+      </section>
     </Fragment>
   );
 };

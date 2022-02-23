@@ -1,5 +1,6 @@
 .loan_container {
   width: 33%;
+  height: auto;
 }
 .loanForm {
   display: flex;
@@ -21,10 +22,12 @@
 }
 .loanAmount button {
   font-size: 1rem;
-  padding: 0.7rem 0.9rem;
-  border-radius: 50%;
+  width: 3rem;
+  height: auto;
+  text-align: center;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.5rem;
   border: none;
   background-color: #e11d48;
   color: #fff;
-  margin-bottom: 0.6rem;
 }

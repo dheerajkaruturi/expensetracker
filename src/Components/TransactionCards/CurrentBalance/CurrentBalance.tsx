@@ -11,7 +11,15 @@ const CurrentBalance: React.FC = function () {
           <h2>
             Current Balance <span>as of 23-02-2022</span>
           </h2>
-          <p>33000.00 ₹</p>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "center",
+            }}
+          >
+            <p>33000.00 ₹</p>
+          </div>
         </div>
       </Card>
     </div>

@@ -23,6 +23,7 @@
   font-size: 1rem;
   margin-top: 2px;
   background-color: #f1f2f3;
+  border-radius: 0.5rem;
 }
 .transferTo {
   width: 50%;
@@ -43,4 +44,5 @@
   border-radius: 0.5rem;
   text-align: center;
   cursor: pointer;
+  margin-top: 0.35rem;
 }

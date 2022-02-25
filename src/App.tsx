@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Timer from "./Components/CountdownTimer/Timer";
 
 import Header from "./Components/Header/Header";
@@ -17,7 +17,17 @@ const DUMMY_MOVEMENTS: {
   movements: [100, -200, 3000, -600, 100, -200, 7000, -600],
 };
 
+//* for easy approach to use
+const moneyMovements = DUMMY_MOVEMENTS.movements;
+
 const App: React.FC = function () {
+  const [mov, setMov] = useState<number[]>(moneyMovements);
+
+  const newMov = (movementValues: number): void => {
+    setMov((previousMov) => {
+      return [...previousMov, movementValues];
+    });
+  };
   return (
     <Fragment>
       <header>
@@ -25,7 +35,8 @@ const App: React.FC = function () {
       </header>
       <section>
         <Timer />
-        <TransactionCards />
+        {/*//? newly created movements are added in to the movements array through props that are passed. */}
+        <TransactionCards newMovements={newMov} />
         <h2
           style={{
             marginLeft: "2rem",
@@ -34,7 +45,7 @@ const App: React.FC = function () {
         >
           Transactions :
         </h2>
-        <Table movTable={DUMMY_MOVEMENTS.movements} />
+        <Table movTable={mov} />
       </section>
     </Fragment>
   );

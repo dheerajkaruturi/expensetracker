@@ -5,12 +5,36 @@ import Loan from "./Loan/Loan";
 import styles from "./transactioncard.module.css";
 import Transfer from "./Transfer_to/Transfer";
 
-const TransactionCards = function () {
+//* creating an interface of the props that we recieve from the App.tsx file.
+
+interface PropValues {
+  newMovements(movementValues: number): void;
+}
+
+const TransactionCards: React.FC<PropValues> = function (props) {
+  //? to get loan details:
+  const loanAmountValue = (loan: number): void => {
+    const recievedLoanAmount = loan;
+
+    console.log(recievedLoanAmount);
+
+    props.newMovements(recievedLoanAmount);
+  };
+
+  //? to get transfer details:
+  const transferDetails = function (
+    transferedTo: string,
+    transferedAmount: number
+  ): void {
+    console.log(transferedAmount, transferedTo);
+    props.newMovements(transferedAmount);
+  };
+
   return (
     <div className={styles.cards_Container}>
       <CurrentBalance />
-      <Loan />
-      <Transfer />
+      <Loan loanAmount={loanAmountValue} />
+      <Transfer transferDetails={transferDetails} />
     </div>
   );
 };

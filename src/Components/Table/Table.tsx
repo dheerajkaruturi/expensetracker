@@ -1,6 +1,6 @@
 import Card from "../Card/Card";
 
-import styles from "./table.module.css";
+import styles from "./table.module.css"; 
 
 const Table: React.FC<{ movTable: number[] }> = function (props) {
   for (const movements of props.movTable) {

@@ -5,13 +5,19 @@ import styles from "./transfer.module.css";
 
 //* interface of the props that we get from the parent component.
 interface PropValues {
-  transferDetails(transferedTo: string, tranferedAmount: number): void;
+  transferDetails(transferedTo: string, tranferedAmount: number, tranferedDate: string): void;
 }
 
 const Transfer: React.FC<PropValues> = function (props) {
   const transferToRef = useRef<HTMLInputElement>(null);
 
   const transferAmountRef = useRef<HTMLInputElement>(null);
+
+  //? to get current date and send them as arguments:
+  const date = new Date();
+  const currentDate = date.getDate();
+  const currentMonth = date.getMonth() + 1;
+  const currentYear = date.getFullYear();
 
   const transferHandler = (event: React.FormEvent): void => {
     event.preventDefault();
@@ -20,7 +26,9 @@ const Transfer: React.FC<PropValues> = function (props) {
 
     const enteredTransferAmt = +transferAmountRef.current!.value;
 
-    props.transferDetails(enteredTransferTo, -enteredTransferAmt);
+     const fullDate = `${currentDate}-${currentMonth}-${currentYear}`;
+
+    props.transferDetails(enteredTransferTo, -enteredTransferAmt, fullDate);
   };
   return (
     <div className={styles.transfer_Container}>

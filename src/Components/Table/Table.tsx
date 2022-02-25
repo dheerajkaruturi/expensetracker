@@ -1,11 +1,26 @@
+import React from "react";
 import Card from "../Card/Card";
 
-import styles from "./table.module.css"; 
+import styles from "./table.module.css";
 
-const Table: React.FC<{ movTable: number[] }> = function (props) {
-  for (const movements of props.movTable) {
-    console.log(movements);
-  }
+const Table: React.FC<{ movTable: [number, string][] }> = function (props) {
+  console.log(props.movTable);
+
+  //? this function returns the table values
+  const newTable = () => {
+    return props.movTable.map((mov, index) => {
+      return (
+        <tr key={index}>
+          <th scope="row">{index + 1}</th>
+          <td>{mov[0] > 0 ? "Credit" : "Debit"}</td>
+          <td>{mov[1]}</td>
+          <td>{mov[0]}</td>
+        </tr>
+      );
+    });
+  };
+
+  
 
   return (
     <div className={styles.tableWrapper}>
@@ -48,26 +63,7 @@ const Table: React.FC<{ movTable: number[] }> = function (props) {
               <th scope="col">Amount</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Credit</td>
-              <td>22-02-2022</td>
-              <td>500</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Debit</td>
-              <td>20-02-2020</td>
-              <td>200</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Credit</td>
-              <td>19-02-2022</td>
-              <td>3000</td>
-            </tr>
-          </tbody>
+          <tbody>{newTable()}</tbody>
         </table>
       </Card>
     </div>

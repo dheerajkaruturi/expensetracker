@@ -8,26 +8,28 @@ import Transfer from "./Transfer_to/Transfer";
 //* creating an interface of the props that we recieve from the App.tsx file.
 
 interface PropValues {
-  newMovements(movementValues: number): void;
+  newMovements(movementValues: number, movementDate: string): void;
 }
 
 const TransactionCards: React.FC<PropValues> = function (props) {
   //? to get loan details:
-  const loanAmountValue = (loan: number): void => {
+  const loanAmountValue = (loan: number, date: string): void => {
     const recievedLoanAmount = loan;
+    const happenedDate = date;
 
     console.log(recievedLoanAmount);
 
-    props.newMovements(recievedLoanAmount);
+    props.newMovements(recievedLoanAmount, happenedDate);
   };
 
   //? to get transfer details:
   const transferDetails = function (
     transferedTo: string,
-    transferedAmount: number
+    transferedAmount: number,
+    transferedDate: string,
   ): void {
     console.log(transferedAmount, transferedTo);
-    props.newMovements(transferedAmount);
+    props.newMovements(transferedAmount, transferedDate);
   };
 
   return (

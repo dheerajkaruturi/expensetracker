@@ -8,24 +8,31 @@ import TransactionCards from "./Components/TransactionCards/TransactionCards";
 const DUMMY_MOVEMENTS: {
   id: number;
   title: string;
-  date: object;
-  movements: number[];
+  movements: [number, string][];
 } = {
   id: 1,
   title: "Johnas",
-  date: new Date(),
-  movements: [100, -200, 3000, -600, 100, -200, 7000, -600],
+  movements: [
+    [100, "20-02-2022"],
+    [-200, "19-02-2022"],
+    [3000, "18-02-2022"],
+    [-600, "17-02-2022"],
+    [100, "16-02-2022"],
+    [-200, "15-02-2022"],
+    [7000, "14-02-2022"],
+    [-600, "13-02-2022"],
+  ],
 };
 
 //* for easy approach to use
 const moneyMovements = DUMMY_MOVEMENTS.movements;
 
 const App: React.FC = function () {
-  const [mov, setMov] = useState<number[]>(moneyMovements);
+  const [mov, setMov] = useState<[number, string][]>(moneyMovements);
 
-  const newMov = (movementValues: number): void => {
+  const newMov = (movementValues: number, movementDate: string): void => {
     setMov((previousMov) => {
-      return [...previousMov, movementValues];
+      return [...previousMov, [movementValues, movementDate]];
     });
   };
   return (

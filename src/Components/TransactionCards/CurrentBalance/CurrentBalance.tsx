@@ -1,9 +1,25 @@
-import react from "react";
+import React from "react";
 import Card from "../../Card/Card";
 
 import styles from "./currenbalance.module.css";
 
-const CurrentBalance: React.FC = function () {
+interface PropValues {
+  toCurrentBalReducer: [number, string][];
+}
+
+const CurrentBalance: React.FC<PropValues> = function (props) {
+  console.log(props.toCurrentBalReducer);
+
+  //?using map method on the array that was recieve through props and then used reducer function to calculate the total available balance.
+  const availBal = props.toCurrentBalReducer
+    .map((mov) => {
+      return mov[0];
+    })
+    .reduce((prevBal, currentBal) => {
+      return prevBal + currentBal;
+    }, 0)
+    .toFixed(2);
+
   return (
     <div className={styles.currentBal_container}>
       <Card>
@@ -18,7 +34,7 @@ const CurrentBalance: React.FC = function () {
               alignItems: "center",
             }}
           >
-            <p>33000.00 ₹</p>
+            <p>{availBal} ₹</p>
           </div>
         </div>
       </Card>

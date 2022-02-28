@@ -1,20 +1,13 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig: {
-  apiKey: string;
-  authDomain: string;
-  projectId: string;
-  storageBucket: string;
-  messagingSenderId: string;
-  appId: string;
-} = {
+const firebaseConfig = {
   apiKey: "AIzaSyDUasissgD0q7zIrxwyH1ROVLBjB4ojdM4",
   authDomain: "moneytracker-7c315.firebaseapp.com",
+  databaseURL: "https://moneytracker-7c315-default-rtdb.firebaseio.com",
   projectId: "moneytracker-7c315",
   storageBucket: "moneytracker-7c315.appspot.com",
   messagingSenderId: "253890946116",
@@ -22,6 +15,8 @@ const firebaseConfig: {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
-export const db = getFirestore(app);
+var database = firebase.database();
+
+export default database;

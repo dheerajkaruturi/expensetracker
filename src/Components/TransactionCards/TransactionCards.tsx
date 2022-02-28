@@ -9,6 +9,8 @@ import Transfer from "./Transfer_to/Transfer";
 
 interface PropValues {
   newMovements(movementValues: number, movementDate: string): void;
+  
+  toCurrentBalReducer: [number, string][];
 }
 
 const TransactionCards: React.FC<PropValues> = function (props) {
@@ -26,7 +28,7 @@ const TransactionCards: React.FC<PropValues> = function (props) {
   const transferDetails = function (
     transferedTo: string,
     transferedAmount: number,
-    transferedDate: string,
+    transferedDate: string
   ): void {
     console.log(transferedAmount, transferedTo);
     props.newMovements(transferedAmount, transferedDate);
@@ -34,8 +36,13 @@ const TransactionCards: React.FC<PropValues> = function (props) {
 
   return (
     <div className={styles.cards_Container}>
-      <CurrentBalance />
+      {/* //?sending prop values to current balance component from app component(parent to child) */}
+      <CurrentBalance toCurrentBalReducer={props.toCurrentBalReducer} />
+
+      {/* //?taking prop values to app component (child to parent transfer) */}
       <Loan loanAmount={loanAmountValue} />
+
+      {/* //?taking prop values to app component (child to parent transfer) */}
       <Transfer transferDetails={transferDetails} />
     </div>
   );

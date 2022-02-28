@@ -3,9 +3,11 @@ import Card from "../Card/Card";
 
 import styles from "./table.module.css";
 
-const Table: React.FC<{ movTable: [number, string][] }> = function (props) {
-  console.log(props.movTable);
+interface PropValues{
+  movTable: [number, string][];
+}
 
+const Table: React.FC<PropValues> = function (props) {
   //? this function returns the table values
   const newTable = () => {
     return props.movTable.map((mov, index) => {

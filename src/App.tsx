@@ -10,10 +10,12 @@ const base_Url = `https://moneytracker-7c315-default-rtdb.firebaseio.com/moneymo
 
 const App: React.FC = function () {
   const [mov, setMov] = useState([]);
+  const [isLoading, setIsloading] = useState(false);
 
   //! getting movements values from the firebase:
 
   const getMovements = async function () {
+    setIsloading(true);
     const response = await fetch(base_Url);
     const data = await response.json();
 
@@ -24,6 +26,7 @@ const App: React.FC = function () {
 
     console.log(typeof parsedValue, parsedValue);
 
+    setIsloading(false);
     //* setting the movements value to the state setting function.
     setMov(parsedValue);
   };
@@ -45,35 +48,31 @@ const App: React.FC = function () {
     movementsDetailsArray.push(movementValues, movementDate);
     console.log(movementsDetailsArray);
 
-    //? updating the movements array in firebase by adding this movementsDetailsArray from here:
-    const newMovements = function () {
-      return firebase
-        .database()
-        .ref("moneymovements")
-        .child("movements")
-        .push(movementsDetailsArray);
-    };
-    newMovements();
+    //? adding new movements to the movements array in firebase:
   };
   return (
     <Fragment>
       <header>
         <Header />
       </header>
-      <section>
-        <Timer />
-        {/*//? newly created movements are added in to the movements array through props that are passed. */}
-        <TransactionCards newMovements={newMov} toCurrentBalReducer={mov} />
-        <h2
-          style={{
-            marginLeft: "2rem",
-            fontWeight: "400",
-          }}
-        >
-          Transactions :
-        </h2>
-        <Table movTable={mov} />
-      </section>
+      {isLoading ? (
+        <p className="loading">Loading...</p>
+      ) : (
+        <section>
+          <Timer />
+          {/*//? newly created movements are added in to the movements array through props that are passed. */}
+          <TransactionCards newMovements={newMov} toCurrentBalReducer={mov} />
+          <h2
+            style={{
+              marginLeft: "2rem",
+              fontWeight: "400",
+            }}
+          >
+            Transactions :
+          </h2>
+          <Table movTable={mov} />
+        </section>
+      )}
     </Fragment>
   );
 };
